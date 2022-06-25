@@ -10,11 +10,16 @@ class mainWindow(QWidget):
     def InitGUI(self):
         self.setWindowTitle('Hello')
         self.resize(480,320)
-        # use a grid arrangement style
+        # use a grid arrangement style and create listeners for buttons
         self.layout=QGridLayout() 
         self.button1=QPushButton('1',None)
+        self.button1.clicked.connect(self.button)
+
         self.button2=QPushButton('2',None)
+        self.button2.clicked.connect(self.button)
+
         self.button3=QPushButton('3',None)
+        self.button3.clicked.connect(self.button)
 
         # An image can also be added as a button
         self.image=QPixmap('Widgets/Announce.png')
@@ -33,6 +38,11 @@ class mainWindow(QWidget):
 
         self.setLayout(self.layout)
         self.show()
+    
+    # Listener callback for buttons
+    def button(self):
+        sender = self.sender()
+        print(f'Button {sender.text()} pushed')
 
 if __name__=='__main__':
     app = QApplication(sys.argv)
