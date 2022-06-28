@@ -7,7 +7,7 @@ class thermo(QWidget):
     colorChanged=pyqtSignal(int)
     valueChanged=pyqtSignal(int)
 
-    def __init__(self) -> None:
+    def __init__(self, parent=None):
         super().__init__(parent)
         self.radius = 20
         self.height = 80
@@ -26,7 +26,7 @@ class thermo(QWidget):
         self.update()
 
     def initGui(self):
-        self.setGeometry(0,0,4*self.radius+self.height)
+        self.setGeometry(0,0,4*self.radius, 4*self.radius+self.height)
         self.show()
 
     def paintEvent(self, event):
